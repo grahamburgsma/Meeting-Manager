@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.MainActivity">
+
+    <item
+        android:id="@+id/action_move"
+        android:icon="@drawable/ic_today"
+        android:title="Move Meeting to Date" />
+
+    <item
+        android:id="@+id/action_select_all"
+        android:icon="@drawable/ic_select_all"
+        android:title="Select All" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_delete"
+        android:title="Delete Meeting" />
+</menu>

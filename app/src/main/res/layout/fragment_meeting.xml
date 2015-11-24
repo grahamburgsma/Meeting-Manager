@@ -1,0 +1,310 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context="cosc3p97.meetingmanager.fragments.MeetingFragment">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/buttonCloseFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="16dp"
+                android:src="@drawable/ic_clear" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonSaveMeeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="right|center_vertical"
+                android:paddingLeft="12dp"
+                android:paddingRight="16dp"
+                android:text="Save"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </TableRow>
+
+        <EditText
+            android:id="@+id/editTextMeetingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:fontFamily="sans-serif-light"
+            android:hint="Title"
+            android:inputType="textCapWords"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="#AAFFFFFF"
+            android:textSize="22sp" />
+
+    </TableLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center|top"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_location_on" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/editTextMeetingLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-light"
+                        android:hint="Location"
+                        android:inputType="textCapWords"
+                        android:padding="16dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_access_time" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/buttonStartDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="left|center_vertical"
+                            android:padding="16dp"
+                            android:text="Current Date"
+                            android:textAllCaps="false"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/buttonStartTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="right|center_vertical"
+                            android:padding="16dp"
+                            android:text="Current Time"
+                            android:textAllCaps="false"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/buttonEndDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="left|center_vertical"
+                            android:padding="16dp"
+                            android:text="Current Date"
+                            android:textAllCaps="false"
+                            android:textSize="16sp"
+                            android:visibility="invisible" />
+
+                        <Button
+                            android:id="@+id/buttonEndTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:fontFamily="sans-serif-light"
+                            android:gravity="right|center_vertical"
+                            android:padding="16dp"
+                            android:text="Current Time"
+                            android:textAllCaps="false"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_notifications" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/buttonNotification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="left|center_vertical"
+                        android:padding="16dp"
+                        android:text="No Notification"
+                        android:textAllCaps="false"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_people" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/listViewContacts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        android:orientation="vertical" />
+
+                    <Button
+                        android:id="@+id/buttonAddContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="16dp"
+                        android:text="Add Contact"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="?android:attr/listDivider" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_gravity="top|center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/ic_subject" />
+
+                <EditText
+                    android:id="@+id/editTextMeetingNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="Note"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:padding="16dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

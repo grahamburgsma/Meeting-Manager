@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_notification_none"
+        android:title="No Notification" />
+
+    <item
+        android:id="@+id/action_notification_15"
+        android:title="15 minutes before" />
+
+    <item
+        android:id="@+id/action_notification_30"
+        android:title="30 minutes before" />
+
+    <item
+        android:id="@+id/action_notification_60"
+        android:title="1 hour before" />
+
+</menu>
