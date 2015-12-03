@@ -27,4 +27,8 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="FullScreenDialog" parent="AppTheme" >
+        <item name="android:actionBarStyle">@style/AppTheme.NoActionBar</item>
+    </style>
+
 </resources>

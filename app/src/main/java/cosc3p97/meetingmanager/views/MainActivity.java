@@ -1,5 +1,6 @@
 package cosc3p97.meetingmanager.views;
 
+import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
@@ -67,11 +68,6 @@ public class MainActivity extends AppCompatActivity implements MeetingFragment.D
         if (fragment instanceof MeetingFragment) {
             this.meetingFragment = (MeetingFragment) fragment;
             this.meetingFragment.delegate = this;
-
-            if (meetingFragment.isAdded()) {
-                if (getSupportActionBar() != null)
-                    getSupportActionBar().hide();
-            }
         }
     }
 
@@ -83,38 +79,21 @@ public class MainActivity extends AppCompatActivity implements MeetingFragment.D
 
         if (meeting != null) {
             meetingFragment = MeetingFragment.newInstance(meeting.id);
-            meetingFragment.delegate = this;
         } else {
             meetingFragment = new MeetingFragment();
-            meetingFragment.delegate = this;
         }
 
-        getFragmentManager().beginTransaction().add(android.R.id.content, meetingFragment).commit();
+        meetingFragment.delegate = this;
+
+        meetingFragment.show(getFragmentManager(), "dialog");
 
         floatingActionButton.hide();
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setShowHideAnimationEnabled(false);
-            getSupportActionBar().hide();
-        }
     }
 
     public void hideMeetingFragment() {
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().show();
-        }
-
         floatingActionButton.show();
 
-        getFragmentManager().beginTransaction().remove(meetingFragment).commit();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!meetingFragment.isAdded())
-            super.onBackPressed();
-        else
-            hideMeetingFragment();
+        meetingFragment.dismiss();
     }
 
     @Override

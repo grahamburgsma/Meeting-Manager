@@ -9,9 +9,10 @@ package cosc3p97.meetingmanager.fragments;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Fragment;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,14 +38,13 @@ import android.widget.TimePicker;
 import org.joda.time.DateTime;
 import org.joda.time.MutableDateTime;
 
-import java.lang.reflect.Method;
 import java.util.Calendar;
 
 import cosc3p97.meetingmanager.R;
 import cosc3p97.meetingmanager.controllers.MeetingController;
 import cosc3p97.meetingmanager.models.Meeting;
 
-public class MeetingFragment extends Fragment implements View.OnClickListener {
+public class MeetingFragment extends DialogFragment implements View.OnClickListener {
 
     public Delegate delegate;
     EditText editTextTitle, editTextLocation, editTextNote;
@@ -67,6 +68,8 @@ public class MeetingFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialog);
     }
 
     @Override
@@ -187,7 +190,7 @@ public class MeetingFragment extends Fragment implements View.OnClickListener {
             startDateTime = meeting.startDateTime.copy();
             endDateTime = meeting.endDateTime.copy();
         } else if (savedInstanceState != null) { //save on rotation
-            this.meeting = (Meeting)savedInstanceState.getSerializable("meeting");
+            this.meeting = (Meeting) savedInstanceState.getSerializable("meeting");
             this.startDateTime = new MutableDateTime(savedInstanceState.getLong("start_time"));
             this.endDateTime = new MutableDateTime(savedInstanceState.getLong("end_time"));
 
@@ -296,7 +299,7 @@ public class MeetingFragment extends Fragment implements View.OnClickListener {
 
     //Close fragment and cleanup
     public void closeFragment() {
-        View view = getActivity().getCurrentFocus();
+        View view = getDialog().getCurrentFocus();
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
@@ -307,13 +310,15 @@ public class MeetingFragment extends Fragment implements View.OnClickListener {
         editTextLocation.getText().clear();
         editTextNote.getText().clear();
 
-
-
-                new MutableDateTime(startDateTime.toDate().getTime());
-
+        new MutableDateTime(startDateTime.toDate().getTime());
 
         if (delegate != null)
             delegate.closeFragment();
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        closeFragment();
     }
 
     @Override
